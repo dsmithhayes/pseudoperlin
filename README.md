@@ -7,4 +7,5 @@ Usage
 =============
 
 gcc noise_image.c
+
 ~/a.out filename
