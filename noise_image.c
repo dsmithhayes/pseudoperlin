@@ -76,6 +76,18 @@ double smooth_noise(double x, double y)
 	return value;
 }
 
+double turbulence(double x, double y, double size)
+{
+	double value = 0.0, initial_size = size;
+	
+	while(size >= 1) {
+		value += smooth_noise(x / size, y / size) * size;
+		size /= 2.0;
+	}
+	
+	return(128.0 * value / initial_size);
+}
+
 double random(int min, int max)
 {
 	srand((unsigned)time(NULL));
@@ -89,16 +101,4 @@ double random(int min, int max)
 	if(second > 120) second = 120;
 
 	return (max - min);
-}
-
-double turbulence(double x, double y, double size)
-{
-	double value = 0.0, initial_size = size;
-	
-	while(size >= 1) {
-		value += smooth_noise(x / size, y / size) * size;
-		size /= 2.0;
-	}
-	
-	return(128.0 * value / initial_size);
 }
