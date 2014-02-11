@@ -82,6 +82,7 @@ double generate_random(int min, int max)
 	double first = rand() % min;
 	double second = rand() % max;
 
+	/* there needs to be a better way to do this, right? */
 	if(first < 20) first = 20;
 	if(first > 120) first = 120;
 	if(second < 20) second = 20;
