@@ -19,13 +19,14 @@ static struct color {
 
 int x, y;
 
-int main(void)
+int main(int argc, char *argv[])
 {
-    generate_noise();
+	FILE *fp;
+	generate_noise();
 
     struct color *itr = output;
-
-    printf("P6 %d %d %d\n", WIDTH, HEIGHT, MAX_PPM_COL);
+	fp = fopen(argv[1], "w+");	// magic numbers
+    fprintf(fp, "%s %d %d %d %s", "P6", WIDTH, HEIGHT, MAX_PPM_COL, "\n");
 
     for(x = 0; x < WIDTH; x++)
 		for(y = 0; y < HEIGHT; y++) {
@@ -35,6 +36,7 @@ int main(void)
 	        itr++;
 		}
 
+	fclose(fp);
     return 0;
 }
 
@@ -79,10 +81,12 @@ double generate_random(int min, int max)
 	double first = rand() % min;
 	double second = rand() % max;
 
-	if(first < 1) first = 1;
-	if(second < 1) second = 1;
+	if(first < 20) first = 20;
+	if(first > 120) first = 120;
+	if(second < 20) second = 20;
+	if(second > 120) second = 120;
 
-	return max - min;
+	return (max - min);
 }
 
 double turbulence(double x, double y, double size)
