@@ -21,29 +21,30 @@ int x, y;
 
 int main(int argc, char *argv[])
 {
-	FILE *fp;
-	generate_noise();
+    rough_noise();
 
     struct color *itr = output;
-	fp = fopen(argv[1], "w+");	// magic numbers
-    fprintf(fp, "%s %d %d %d %s", "P6", WIDTH, HEIGHT, MAX_PPM_COL, "\n");
+
+    FILE * fp;
+    fp = fopen (argv[1], "w+");
+
+    fprintf(fp, "%s %d %d %d \n", "P6", WIDTH, HEIGHT, 255);
 
     for(x = 0; x < WIDTH; x++)
 		for(y = 0; y < HEIGHT; y++) {
-			putchar(itr->r = turbulence(x, y, generate_random(10, 50)));
-			putchar(itr->g = turbulence(x, y, generate_random(25, 90)));
-	        putchar(itr->b = turbulence(x, y, generate_random(30, 75)));
-	        itr++;
+                    fprintf(fp, "%c", itr->r  = turbulence(x, y, generate_random(10, 50)));
+                    fprintf(fp, "%c", itr->g  = turbulence(x, y, generate_random(25, 90)));
+                    fprintf(fp, "%c", itr->b  = turbulence(x, y, generate_random(30, 75)));
 		}
 
-	fclose(fp);
+    fclose(fp);
     return 0;
 }
 
 
 void generate_noise()
 {
-	// seed the random
+	/* seed the random */
 	srand((unsigned)time(NULL));
     
 	for (x = 0; x < WIDTH; ++x)
