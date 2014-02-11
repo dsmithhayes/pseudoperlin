@@ -8,7 +8,7 @@
 
 double	noise[WIDTH][HEIGHT];
 
-void	generate_noise();
+void	rough_noise();
 double	smooth_noise(double x, double y);
 double	turbulence(double x, double y, double size);
 double	generate_random(int min, int max);
@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 }
 
 
-void generate_noise()
+void rough_noise()
 {
 	/* seed the random */
 	srand((unsigned)time(NULL));
