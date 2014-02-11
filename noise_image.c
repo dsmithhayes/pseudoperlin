@@ -11,7 +11,7 @@ double	noise[WIDTH][HEIGHT];
 void	rough_noise();
 double	smooth_noise(double x, double y);
 double	turbulence(double x, double y, double size);
-double	generate_random(int min, int max);
+double	random(int min, int max);
 
 static struct color {
 	unsigned char r, g, b;
@@ -28,13 +28,13 @@ int main(int argc, char *argv[])
     FILE * fp;
     fp = fopen (argv[1], "w+");
 
-    fprintf(fp, "%s %d %d %d \n", "P6", WIDTH, HEIGHT, 255);
+    fprintf(fp, "%s %d %d %d \n", "P6", WIDTH, HEIGHT, MAX_PPM_COL);
 
     for(x = 0; x < WIDTH; x++)
 		for(y = 0; y < HEIGHT; y++) {
-                    fprintf(fp, "%c", itr->r  = turbulence(x, y, generate_random(10, 50)));
-                    fprintf(fp, "%c", itr->g  = turbulence(x, y, generate_random(25, 90)));
-                    fprintf(fp, "%c", itr->b  = turbulence(x, y, generate_random(30, 75)));
+                    fprintf(fp, "%c", itr->r  = turbulence(x, y, random(10, 50)));
+                    fprintf(fp, "%c", itr->g  = turbulence(x, y, random(25, 90)));
+                    fprintf(fp, "%c", itr->b  = turbulence(x, y, random(30, 75)));
 		}
 
     fclose(fp);
@@ -76,7 +76,7 @@ double smooth_noise(double x, double y)
 	return value;
 }
 
-double generate_random(int min, int max)
+double random(int min, int max)
 {
 	srand((unsigned)time(NULL));
 	double first = rand() % min;
