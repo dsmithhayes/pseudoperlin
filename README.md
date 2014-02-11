@@ -1,16 +1,17 @@
 Pseudo Perlin
 =============
 
-Fake random, fake perlin, all colours, all C.
+Fake random, fake perlin, all colours, all in ANSI C.
+K&R styling.
 
 Usage
-=============
+======
 
 * gcc noise_image.c
 * ./a.out filename
 
 Goal
-=============
+======
 
 Create (pseudo)random images similar to:
 ![](http://i.imgur.com/Eocfmg7.jpg)
