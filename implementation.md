@@ -11,4 +11,5 @@ Then animate them all. Slow, slow, slow as hell, but should look a lot like our 
 Speedups: use GPU to generate 2-3 tiling perlin noise textures, the mirror/repeat them across pregenerated larger perlin noise textures and use the smaller textures to colorize/change the alpha values of the large textures. Still slow, but should be faster because only a few dynamic textures are needed.
 
 http://www.inear.se/2010/04/ridged-perlin-noise/
+
 http://iquilezles.org/www/articles/morenoise/morenoise.
