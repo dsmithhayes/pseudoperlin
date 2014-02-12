@@ -8,11 +8,11 @@
 * gcc -lm noise_image.c
 * ./a.out filename
 
-##*Concrete Goal*
+##*Goal*
 
-Create (pseudo)random images similar to:
+**http://loopvid.appspot.com/pf/ooupyd**
+
+
 ![](http://i.imgur.com/Eocfmg7.jpg)
-
-##*Dream*
 
 ![](http://a.pomf.se/nxjchg.gif)
