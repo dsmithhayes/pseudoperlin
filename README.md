@@ -5,7 +5,7 @@
 
 ##*Usage*
 
-* gcc noise_image.c
+* gcc -lm noise_image.c
 * ./a.out filename
 
 ##*Concrete Goal*
