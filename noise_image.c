@@ -94,7 +94,7 @@ double turbulence(double x, double y, double size)
     }
 
     while(size >= 1) {
-        value += smooth_noise(x / size + offset_x[int_size], y / size + offset_y[int_size]) * size;
+        value += smooth_noise(x / size + offset_x[int_size-1], y / size + offset_y[int_size-1]) * size;
         size /= 2.0;
         int_size /= 2.0;
     }
